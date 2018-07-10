@@ -63,14 +63,17 @@ class ActivityStackCompat {
             if (appTask == null)
                 return null;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                return appTask.getTaskInfo().baseActivity.getClassName();
+                if(appTask.getTaskInfo()!=null && appTask.getTaskInfo().baseActivity!=null) {
+                    return appTask.getTaskInfo().baseActivity.getClassName();
+                }
+                return null;
             } else {
                 ComponentName componentName = RecoveryStore.getInstance().getBaseActivity();
                 return componentName == null ? null : componentName.getClassName();
             }
         } else {
             ActivityManager.RunningTaskInfo taskInfo = getTopTaskBeforeL(context);
-            if (taskInfo == null)
+            if (taskInfo == null || taskInfo.baseActivity ==null)
                 return null;
             return taskInfo.baseActivity.getClassName();
         }

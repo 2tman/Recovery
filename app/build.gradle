@@ -28,8 +28,8 @@ dependencies {
 
 //    debugCompile 'com.zxy.android:recovery:0.1.5'
 //    releaseCompile 'com.zxy.android:recovery-no-op:0.1.5'
-    implementation 'com.android.support:appcompat-v7:25.2.0'
-    implementation 'com.android.support:design:25.2.0'
-    debugImplementation project(':recovery')
-    releaseImplementation project(':recovery-no-op')
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation project(':recovery')
+    //releaseImplementation project(':recovery-no-op')
 }
